@@ -1,0 +1,106 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "fizz_theme",
+      "host": {
+        "sourcePath": "/var/app/current/fizz_theme"
+      }
+    },
+    {
+      "name": "nginx-proxy-conf",
+      "host": {
+        "sourcePath": "/var/app/current/proxy/conf.d"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "keycloak-app",
+      "image": "fizzcorp/keycloak-newrelic:3.4.3.Final",
+      "essential": true,
+      "memory": 1024,
+      "portMappings": [
+        {
+          "hostPort": 8080,
+          "containerPort": 8080
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "fizz_theme",
+          "containerPath": "/opt/jboss/keycloak/themes/fizz_theme",
+          "readOnly": true
+        }
+      ],
+      "environment": [
+        {
+          "name": "NEW_RELIC_APP_NAME",
+          "value": "<<NEW_RELIC_APP_NAME>>"
+        },
+        {
+          "name": "NEW_RELIC_LICENSE_KEY",
+          "value": "<<NEW_RELIC_LICENSE_KEY>>"
+        },
+        {
+          "name": "DB_VENDOR",
+          "value": "POSTGRES"
+        },
+        {
+          "name": "POSTGRES_PORT_5432_TCP_ADDR",
+          "value": "<<AWS_POSTGRES_URL>>"
+        },
+        {
+          "name": "KEYCLOAK_USER",
+          "value": "<<KEYCLOAK_USER>>"
+        },
+        {
+          "name": "KEYCLOAK_PASSWORD",
+          "value": "<<KEYCLOAK_PASSWORD>>"
+        },
+        {
+          "name": "POSTGRES_PORT",
+          "value": "5432"
+        },
+        {
+          "name": "POSTGRES_DATABASE",
+          "value": "keycloak"
+        },
+        {
+          "name": "POSTGRES_USER",
+          "value": "<<POSTGRES_USER>>"
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "value": "<<POSTGRES_PASSWORD>>"
+        },
+        {
+          "name": "PROXY_ADDRESS_FORWARDING",
+          "value": true
+        }
+      ]
+    },
+    {
+      "name": "nginx-proxy",
+      "image": "nginx:1.16.0",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "keycloak-app"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "nginx-proxy-conf",
+          "containerPath": "/etc/nginx/conf.d",
+          "readOnly": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+.login-pf body {
+    /*background-image: url('../img/image_bg.png');*/
+    /*background-size: cover;*/
+
+    background: linear-gradient(rgba(43, 61, 78, .90), rgba(43, 61, 78, .90) ),
+                url(../img/image_bg.png) no-repeat center center fixed;
+    background-size: cover;
+    font-size: 1.34em;
+    font-family: sans-serif;
+    line-height: 22px;
+    font-weight: 100;
+}
+
+.login-pf label {
+    font-weight: 100 !important;
+}
+
+.login-pf p {
+    /*color: #fff;*/
+}
+
+.login-pf a {
+    /*color: #5a4ee2;*/
+}
+
+
+.login-pf #kc-logo-wrapper {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNDUzLjIgMzY2LjIiPjxzdHlsZT4uc3Qwe2ZpbGw6I2ZmZn08L3N0eWxlPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02Ni40IDM2Ni4yek0zMTQuNCAwSDEzOS4yQzYyLjYgMCAuNSA2MS43LjUgMTM3LjhjLTcgODQuMyA2Ni45IDIyNS43IDY1LjkgMjI4LjQuMS0xLjUgNy41LTkwLjggMzMtOTUuNSAxMi4xIDQgMjMuNCA0LjggMzkuOSA0LjhoMTc1LjJjNzYuNiAwIDEzOC43LTYxLjcgMTM4LjctMTM3LjhTMzkxLjEgMCAzMTQuNCAwek0xNDUuOCAxMDQuOEgxMDF2MjUuM2g0MS44djIwLjdIMTAxdjQ0LjdINzUuM1Y4NGg3MC41djIwLjh6bTQ1IDkwLjdoLTI1LjZWODRoMjUuNnYxMTEuNXptMTkzLjcgMEgyMDZ2LTEzLjdsNTUuMi03Ni4xdi0uNUgyMTFWODRoODMuOXYxNC40bC01NC4xIDc1LjR2LjVoNTkuM2w0OS44LTY4LjZ2LS41aC01MC4zVjg0aDgzLjl2MTQuNGwtNTQuMSA3NS40di41aDU1LjF2MjEuMnoiLz48L3N2Zz4=);
+}
+
+.login-pf .btn-primary,
+.login-pf .btn-default
+ {
+    background-image: none;
+    border-color: #fff;
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid #ffffffa8;
+    border-radius: 3px;
+    padding: 7px 10px;
+    white-space: nowrap;
+    font-weight: 100;
+}
+
+.login-pf .zocial.facebook, 
+.login-pf .zocial.github, 
+.login-pf .zocial.google, 
+.login-pf .zocial.microsoft, 
+.login-pf .zocial.stackoverflow, 
+.login-pf .zocial.linkedin, 
+.login-pf .zocial.twitter {
+    border: 1px solid #ffffffa8;
+    border-radius: 3px;
+    padding: 4px 10px;
+    white-space: nowrap;
+    font-weight: 100;
+    font-size: 1.1em;
+}
+
+.login-pf .btn-primary:hover,
+.login-pf .btn-default:hover 
+{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%) !important;
+}
+
+
+.login-pf #kc-header-wrapper {
+    font-size: 30px;
+    text-transform: none;
+    line-height: 1.2em;
+    margin-bottom: 15px;
+}
+
+.login-pf #kc-info-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.login-pf #kc-registration {
+    position: relative;
+    top: 15px;
+}
